@@ -92,5 +92,23 @@ end
 # arr1 = [1, 2, 1]
 # result = arr1.flat_map { |num| num == 2 ? [2, 2] : 3 }
 # p result
+# result = arr1.flat_map { |num| num == 2 ? [[2, 2]] : 3 }
+# p result
+# a = {foo: 0, bar: 1, baz: 2}.map {|key, value| [key, value] } # => [:foo, 0, :bar, 1, :baz, 2]
+# p a
+# a = {foo: 0, bar: 1, baz: 2}.flat_map {|key, value| [key, value] } # => [:foo, 0, :bar, 1, :baz, 2]
+# p a
+
+# a = [0, 1, 2, 3].flatten(1)
+# b = a.map {|element| [element, -element] }
+# p b
+
+# a = [0, 1, 2, 3].map {|element| [element, -element] }
+# b = a.flatten(1)
+# p b
+
+# p [0, 1, 2, 3].flat_map {|element| [element, -element] }
 
 p get_all_children_names(person)
+
+
