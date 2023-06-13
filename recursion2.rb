@@ -82,6 +82,104 @@ def get_all_children_names(person)
   child_names.concat(nested_child_names)
 end
 
+p get_all_children_names(person)
+
+
+# get_all_children_names for 'John'
+# person is:
+# {
+#   name: 'John',
+#   children: [
+#     {
+#       name: 'Jim',
+#       children: []
+#     },
+#     {
+#       name: 'Zoe',
+#       children: [
+#         { name: 'Kyle', children: [] },
+#         { name: 'Sophia', children: [] }
+#       ]
+#     }
+#   ]
+# }
+
+# person[:children] is:
+# [
+#   {
+#     name: 'Jim',
+#     children: []
+#   },
+#   {
+#     name: 'Zoe',
+#     children: [
+#       { name: 'Kyle', children: [] },
+#       { name: 'Sophia', children: [] }
+#     ]
+#   }
+# ]
+# 'John' nested_child_names is ['Jim', 'Zoe']
+
+#   child is: 'Jim' - 1 / 2
+#   get_all_children_names for 'Jim'
+#   person is:
+#   {
+#     name: 'Jim',
+#     children: []
+#   }
+  
+#   person[:children] is: []
+#   'Jim' nested_child_names is []
+  
+#   child_names is: []
+#   implicit return [].concat([]) => []
+
+# 'John' nested_child_names is [[], 'Zoe']
+
+#   child is: 'Zoe' - 2 / 2
+#   get_all_children_names for 'Zoe'
+#   person is:
+#   {
+#     name: 'Zoe',
+#     children: [
+#       { name: 'Kyle', children: [] },
+#       { name: 'Sophia', children: [] }
+#     ]
+#   }
+
+#   person[:children] is: ['Kyle', 'Sophia']
+#   'Zoe' nested_child_names is ['Kyle', 'Sophia']
+  
+#     child is: 'Kyle' - 1 / 2
+#     get_all_children_names for 'Kyle'
+#     person is:{ name: 'Kyle', children: [] }
+
+#     person[:children] is: []
+#     'Kyle' nested_child_names is []
+
+#     child_names is: []
+#     implicit return [].concat([]) => []
+  
+#   'Zoe' nested_child_names is [[], 'Sophia']
+#     child is: 'Sophia' - 2 / 2
+#     get_all_children_names for 'Sophia'
+#     person is:{ name: 'Sophia', children: [] }
+
+#     person[:children] is: []
+#     'Sophia' nested_child_names is []
+
+#     child_names is: []
+#     implicit return [].concat([]) => []
+  
+#   'Zoe' nested_child_names is [[], []]
+#   child_names is: ['Kyle', 'Sophia']
+#   implicit return [].concat([]) => ['Kyle', 'Sophia']
+
+# 'John' nested_child_names is [[], ['Kyle', 'Sophia']]
+# child_names is: ['Jim', 'Zoe']
+# implicit return ['Jim', 'Zoe'].concat(['Kyle', 'Sophia']) => ['Jim', 'Zoe', 'Kyle', 'Sophia']
+
+
 # p [[1, 2], 3].flatten
 # p [[1, 2], 3].flatten(1)
 # p [[1, [2]], 3]
@@ -109,6 +207,5 @@ end
 
 # p [0, 1, 2, 3].flat_map {|element| [element, -element] }
 
-p get_all_children_names(person)
 
 
