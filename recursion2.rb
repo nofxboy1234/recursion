@@ -53,3 +53,44 @@ puts sum_range(3)
 # sum_range_recursive(2) => (1) + 2
 # sum_range_recursive(3) => (3) + 3
 #                        => 6
+
+person = {
+  name: 'John',
+  children: [
+    {
+      name: 'Jim',
+      children: []
+    },
+    {
+      name: 'Zoe',
+      children: [
+        { name: 'Kyle', children: [] },
+        { name: 'Sophia', children: [] }
+      ]
+    }
+  ]
+}
+
+require 'pry-byebug'
+
+def get_all_children_names(person)
+  nested_child_names = person[:children].flat_map do |child|
+    get_all_children_names(child)
+  end
+  child_names = person[:children].map { |p| p[:name] }
+
+  return child_names.concat(nested_child_names)
+end
+
+# p [[1, 2], 3].flatten
+# p [[1, 2], 3].flatten(1)
+# p [[1, [2]], 3]
+
+# p [[1, [2]], 3].flatten(1)
+# p [[1, [2]], 3].flatten(2)
+
+# arr1 = [1, 2, 1]
+# result = arr1.flat_map { |num| num == 2 ? [2, 2] : 3 }
+# p result
+
+p get_all_children_names(person)
