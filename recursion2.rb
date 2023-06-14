@@ -197,3 +197,5 @@ p collatz(8)
 p collatz(15)
 p collatz(27)
 p collatz(50)
+
+# Fibonacci Number Sequence: https://youtu.be/mz6tAJMVmfM?t=517
