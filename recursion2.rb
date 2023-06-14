@@ -292,7 +292,6 @@ p fib_value(8)
 
 #           n equals count so:
 #           return 3
-
 # ---------------------
 
 def fib(n)
