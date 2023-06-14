@@ -231,9 +231,10 @@ end
 # p palindrome2?('cat')
 
 def bottles(n)
-  if n == 0
+  case n
+  when 0
     puts 'no more bottles of beer on the wall'
-  elsif n == 1
+  when 1
     puts 'one more bottle of beer on the wall'
     bottles(n - 1)
   else
