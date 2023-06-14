@@ -242,4 +242,16 @@ def bottles(n)
     bottles(n - 1)
   end
 end
-bottles(3)
+# bottles(3)
+
+# 0, 1, 1, 2, 3, 5, 8, 13, 21
+# 0, 
+def fib_value(n, count = 0, prev = [0, 1])
+  fib_num = prev[0] + prev[1]
+  if n == count
+    return prev[1]
+  else
+    fib_value(n, count + 1, [prev[1], fib_num])
+  end
+end
+p fib_value(0)
