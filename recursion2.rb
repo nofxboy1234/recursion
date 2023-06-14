@@ -81,7 +81,7 @@ def get_all_children_names(person)
   child_names.concat(nested_child_names)
 end
 
-p get_all_children_names(person)
+# p get_all_children_names(person)
 
 ## Post pseudo analysis code
 # --get_all_children_names for 'John'
@@ -159,19 +159,41 @@ p get_all_children_names(person)
 
 # p [0, 1, 2, 3].flat_map {|element| [element, -element] }
 
-def fact(n)
-  return 1 if n == 1
+# def fact(n)
+#   return 1 if n == 1
 
-  n * fact(n - 1)
-end
-p fact(3)
+#   n * fact(n - 1)
+# end
+# p fact(3)
 
-def fact2(n)
-  product = 1
-  while n > 0
-    product *= n
-    n -= 1
+# def fact2(n)
+#   product = 1
+#   while n > 0
+#     product *= n
+#     n -= 1
+#   end
+#   product
+# end
+# p fact2(3)
+
+def collatz(n, steps = 0)
+  return steps if n == 1
+
+  steps += 1
+  if n.even?
+    collatz(n / 2, steps)
+  elsif n.odd?
+    collatz(3 * n + 1, steps)
   end
-  product
 end
-p fact2(3)
+p collatz(1)
+p collatz(2)
+p collatz(3)
+p collatz(4)
+p collatz(5)
+p collatz(6)
+p collatz(7)
+p collatz(8)
+p collatz(15)
+p collatz(27)
+p collatz(50)
