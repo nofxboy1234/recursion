@@ -176,26 +176,56 @@ end
 # end
 # p fact2(3)
 
-def collatz(n, steps = 0)
-  return steps if n == 1
+# def collatz(n, steps = 0)
+#   return steps if n == 1
 
-  steps += 1
-  if n.even?
-    collatz(n / 2, steps)
-  elsif n.odd?
-    collatz(3 * n + 1, steps)
-  end
-end
-p collatz(1)
-p collatz(2)
-p collatz(3)
-p collatz(4)
-p collatz(5)
-p collatz(6)
-p collatz(7)
-p collatz(8)
-p collatz(15)
-p collatz(27)
-p collatz(50)
+#   steps += 1
+#   if n.even?
+#     collatz(n / 2, steps)
+#   elsif n.odd?
+#     collatz(3 * n + 1, steps)
+#   end
+# end
+# p collatz(1)
+# p collatz(2)
+# p collatz(3)
+# p collatz(4)
+# p collatz(5)
+# p collatz(6)
+# p collatz(7)
+# p collatz(8)
+# p collatz(15)
+# p collatz(27)
+# p collatz(50)
 
 # Fibonacci Number Sequence: https://youtu.be/mz6tAJMVmfM?t=517
+
+def palindrome?(str, reversed = '')
+  unless reversed == ''
+    return true if str.downcase == reversed.downcase
+
+    return false
+
+  end
+
+  reversed = str.reverse
+  palindrome?(str, reversed)
+end
+p palindrome?('bob')
+p palindrome?('blob')
+p palindrome?('cat')
+
+puts "\n"
+def palindrome2?(string)
+  if string.length == 1 || string.length == 0
+    p string
+    true
+  elsif string[0] == string[-1]
+    palindrome2?(string[1..-2])
+  else
+    false
+  end
+end
+p palindrome2?('bob')
+p palindrome2?('blob')
+p palindrome2?('cat')
