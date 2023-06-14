@@ -86,11 +86,11 @@ p get_all_children_names(person)
 ## Post pseudo analysis code
 # --get_all_children_names for 'John'
 #   person is 'John'
-  
+
 #   'John' nested_child_names is [{'Jim'}, {'Zoe'}]
-    
+
 #     child is: 'Jim' - 1 / 2
-    
+
 #       --get_all_children_names for 'Jim'
 #       person is 'Jim'
 #       'Jim' nested_child_names is []
@@ -105,7 +105,7 @@ p get_all_children_names(person)
 #     person is 'Zoe'
 
 #     'Zoe' nested_child_names is ['Kyle', 'Sophia']
-    
+
 #       child is: 'Kyle' - 1 / 2
 
 #         --get_all_children_names for 'Kyle'
@@ -113,9 +113,9 @@ p get_all_children_names(person)
 #         'Kyle' nested_child_names is []
 #         'Kyle' child_names is: []
 #         implicit return [].concat([]) => []
-    
+
 #     'Zoe' nested_child_names is [[], 'Sophia']
-      
+
 #       child is: 'Sophia' - 2 / 2
 
 #         --get_all_children_names for 'Sophia'
@@ -123,7 +123,7 @@ p get_all_children_names(person)
 #         'Sophia' nested_child_names is []
 #         'Sophia' child_names is: []
 #         implicit return [].concat([]) => []
-    
+
 #     'Zoe' nested_child_names is [[], []]
 #     'Zoe' child_names is: ['Kyle', 'Sophia']
 #     implicit return ['Kyle', 'Sophia'].concat([]) => ['Kyle', 'Sophia']
@@ -131,7 +131,6 @@ p get_all_children_names(person)
 #   'John' nested_child_names is [[], ['Kyle', 'Sophia']]
 #   'John' child_names is: ['Jim', 'Zoe']
 #   implicit return ['Jim', 'Zoe'].concat(['Kyle', 'Sophia']) => ['Jim', 'Zoe', 'Kyle', 'Sophia']
-
 
 # p [[1, 2], 3].flatten
 # p [[1, 2], 3].flatten(1)
@@ -160,5 +159,19 @@ p get_all_children_names(person)
 
 # p [0, 1, 2, 3].flat_map {|element| [element, -element] }
 
+def fact(n)
+  return 1 if n == 1
 
+  n * fact(n - 1)
+end
+p fact(3)
 
+def fact2(n)
+  product = 1
+  while n > 0
+    product *= n
+    n -= 1
+  end
+  product
+end
+p fact2(3)
