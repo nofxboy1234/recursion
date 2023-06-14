@@ -215,7 +215,7 @@ end
 # p palindrome?('blob')
 # p palindrome?('cat')
 
-puts "\n"
+# puts "\n"
 def palindrome2?(string)
   if string.length == 1 || string.length == 0
     p string
@@ -249,9 +249,11 @@ end
 def fib_value(n, count = 0, prev = [0, 1])
   fib_num = prev[0] + prev[1]
   if n == count
-    return prev[1]
+    return prev[0]
   else
     fib_value(n, count + 1, [prev[1], fib_num])
   end
 end
-p fib_value(0)
+p fib_value(5)
+p fib_value(6)
+
