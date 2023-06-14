@@ -211,9 +211,9 @@ def palindrome?(str, reversed = '')
   reversed = str.reverse
   palindrome?(str, reversed)
 end
-p palindrome?('bob')
-p palindrome?('blob')
-p palindrome?('cat')
+# p palindrome?('bob')
+# p palindrome?('blob')
+# p palindrome?('cat')
 
 puts "\n"
 def palindrome2?(string)
@@ -226,6 +226,19 @@ def palindrome2?(string)
     false
   end
 end
-p palindrome2?('bob')
-p palindrome2?('blob')
-p palindrome2?('cat')
+# p palindrome2?('bob')
+# p palindrome2?('blob')
+# p palindrome2?('cat')
+
+def bottles(n)
+  if n == 0
+    puts 'no more bottles of beer on the wall'
+  elsif n == 1
+    puts 'one more bottle of beer on the wall'
+    bottles(n - 1)
+  else
+    puts "#{n} bottles of beer on the wall"
+    bottles(n - 1)
+  end
+end
+bottles(3)
