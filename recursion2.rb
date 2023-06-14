@@ -247,10 +247,11 @@ end
 # 0, 1, 1, 2, 3, 5, 8, 13, 21
 # 0, 
 def fib_value(n, count = 0, prev = [0, 1])
-  fib_num = prev[0] + prev[1]
+  fib_num = prev[0] + prev[1] # next_fib_num = prev[0] + prev[1]
   if n == count
-    return prev[0]
+    return prev[0] # current_fib_num = prev[0]
   else
+    # next_fib_num = prev[1]
     fib_value(n, count + 1, [prev[1], fib_num])
   end
 end
@@ -262,4 +263,60 @@ p fib_value(4)
 p fib_value(5)
 p fib_value(6)
 
-# n is 
+# ---------------------
+n is 0
+count is 0
+prev is [0, 1]
+fib_num is 0 + 1 => 1
+
+n equals count so:
+return 0
+# ---------------------
+n is 1
+count is 0
+prev is [0, 1]
+fib_num is 0 + 1 => 1
+
+n not equal to count so:
+--fib_value(1, 0 + 1, [1, 1])
+
+n is 1
+count is 1
+prev is [1, 1]
+fib_num is 1 + 1 => 2
+
+n equals count so:
+return 1
+# ---------------------
+n is 3
+count is 0
+prev is [0, 1]
+fib_num is 0 + 1 => 1
+
+n not equal to count so:
+--fib_value(3, 0 + 1, [1, 1])
+
+n is 3
+count is 1
+prev is [1, 1]
+fib_num is 1 + 1 => 2
+
+n not equal to count so:
+--fib_value(3, 1 + 1, [1, 2])
+
+n is 3
+count is 2
+prev is [1, 2]
+fib_num is 1 + 2 => 3
+
+n not equal to count so:
+--fib_value(3, 2 + 1, [2, 3])
+
+n is 3
+count is 3
+prev is [2, 3]
+fib_num is 2 + 3 => 5
+
+n equals count so:
+return 2
+# ---------------------
