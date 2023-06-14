@@ -246,13 +246,9 @@ end
 
 # 0, 1, 1, 2, 3, 5, 8, 13, 21
 def fib_value(n, count = 0, prev = [0, 1])
-  current_fib_num = prev[0]
-  next_fib_num = prev[0] + prev[1]
-  if n == count
-    return current_fib_num
-  else
-    fib_value(n, count + 1, [prev[1], next_fib_num])
-  end
+  return prev[0] if n == count
+
+  fib_value(n, count + 1, [prev[1], prev[0] + prev[1]])
 end
 p fib_value(0)
 p fib_value(1)
@@ -264,68 +260,57 @@ p fib_value(6)
 p fib_value(7)
 p fib_value(8)
 
+# ---------------------
+# --fib_value(4, 0, [0, 1])
+#   n is 4
+#   count is 0
+#   prev is [0, 1]
+
+#   n not equal to count so:
+#   --fib_value(4, 1, [1, 1])
+#     n is 4
+#     count is 1
+#     prev is [1, 1]
+
+#     n not equal to count so:
+#     --fib_value(4, 2, [1, 2])
+#       n is 4
+#       count is 2
+#       prev is [1, 2]
+
+#       n not equal to count so:
+#       --fib_value(4, 3, [2, 3])
+#         n is 4
+#         count is 3
+#         prev is [2, 3]
+
+#         n not equal to count so:
+#         --fib_value(4, 4, [3, 5])
+#           n is 4
+#           count is 4
+#           prev is [3, 5]
+
+#           n equals count so:
+#           return 3
 
 # ---------------------
-# n is 0
-# count is 0
-# prev is [0, 1]
-# current_fib_num is 0
-# next_fib_num is 0 + 1 => 1
 
-# n equals count so:
-# return current_fib_num => 0
-# ---------------------
-# n is 1
-# count is 0
-# prev is [0, 1]
-# current_fib_num is 0
-# next_fib_num is 0 + 1 => 1
-
-# n not equal to count so:
-# --fib_value(1, 0 + 1, [1, 1])
-
-# n is 1
-# count is 1
-# prev is [1, 1]
-# current_fib_num is 1
-# next_fib_num is 1 + 1 => 2
-
-# n equals count so:
-# return 1
-# ---------------------
-# n is 3
-# count is 0
-# prev is [0, 1]
-# current_fib_num is 0
-# next_fib_num is 0 + 1 => 1
-
-# n not equal to count so:
-# --fib_value(3, 0 + 1, [1, 1])
-
-# n is 3
-# count is 1
-# prev is [1, 1]
-# current_fib_num is 1
-# next_fib_num is 1 + 1 => 2
-
-# n not equal to count so:
-# --fib_value(3, 1 + 1, [1, 2])
-
-# n is 3
-# count is 2
-# prev is [1, 2]
-# current_fib_num is 1
-# next_fib_num is 1 + 2 => 3
-
-# n not equal to count so:
-# --fib_value(3, 2 + 1, [2, 3])
-
-# n is 3
-# count is 3
-# prev is [2, 3]
-# current_fib_num is 2
-# next_fib_num is 2 + 3 => 5
-
-# n equals count so:
-# return 2
-# ---------------------
+def fib(n)
+  if n == 0
+    0
+  elsif n == 1
+    1
+  else
+    fib(n - 1) + fib(n - 2)
+  end
+end
+puts "\n"
+p fib(0)
+p fib(1)
+p fib(2)
+p fib(3)
+p fib(4)
+p fib(5)
+p fib(6)
+p fib(7)
+p fib(8)
