@@ -254,6 +254,12 @@ def fib_value(n, count = 0, prev = [0, 1])
     fib_value(n, count + 1, [prev[1], fib_num])
   end
 end
+p fib_value(0)
+p fib_value(1)
+p fib_value(2)
+p fib_value(3)
+p fib_value(4)
 p fib_value(5)
 p fib_value(6)
 
+# n is 
