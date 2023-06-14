@@ -245,10 +245,10 @@ end
 # bottles(3)
 
 # 0, 1, 1, 2, 3, 5, 8, 13, 21
-def fib_value(n, count = 0, prev = [0, 1])
-  return prev[0] if n == count
+def fib_value(n, count = 0, current_next = [0, 1])
+  return current_next[0] if n == count
 
-  fib_value(n, count + 1, [prev[1], prev[0] + prev[1]])
+  fib_value(n, count + 1, [current_next[1], current_next[0] + current_next[1]])
 end
 p fib_value(0)
 p fib_value(1)
