@@ -307,5 +307,6 @@ def fib(num)
   end
 end
 
-# binding.pry
-p fib(4)
+binding.pry
+p fib(2)
+# p fib(4)

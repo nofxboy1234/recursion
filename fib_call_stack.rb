@@ -41,6 +41,3 @@
 [3]:304 -- a = fib(3) => ?
 [4]:311 -- fib(4) => ?
 
-recurse or return: copy stack up
-show working - fib(4 - 1) => fib(3)
-unique label same variable in different stacks
