@@ -250,15 +250,15 @@ def fib_value(n, count = 0, current_next = [0, 1])
 
   fib_value(n, count + 1, [current_next[1], current_next[0] + current_next[1]])
 end
-p fib_value(0)
-p fib_value(1)
-p fib_value(2)
-p fib_value(3)
-p fib_value(4)
-p fib_value(5)
-p fib_value(6)
-p fib_value(7)
-p fib_value(8)
+# p fib_value(0)
+# p fib_value(1)
+# p fib_value(2)
+# p fib_value(3)
+# p fib_value(4)
+# p fib_value(5)
+# p fib_value(6)
+# p fib_value(7)
+# p fib_value(8)
 
 # ---------------------
 # --fib_value(4, 0, [0, 1])
@@ -294,22 +294,18 @@ p fib_value(8)
 #           return 3
 # ---------------------
 
-def fib(n)
-  if n == 0
+# 0, 1, 1, 2, 3, 5, 8, 13, 21
+def fib(num)
+  if num == 0
     0
-  elsif n == 1
+  elsif num == 1
     1
   else
-    fib(n - 1) + fib(n - 2)
+    a = fib(num - 1)
+    b = fib(num - 2)
+    a + b
   end
 end
-puts "\n"
-p fib(0)
-p fib(1)
-p fib(2)
-p fib(3)
+
+# binding.pry
 p fib(4)
-p fib(5)
-p fib(6)
-p fib(7)
-p fib(8)
