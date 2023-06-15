@@ -301,12 +301,12 @@ def fib(num)
   elsif num == 1
     1
   else
-    a = fib(num - 1)
-    b = fib(num - 2)
-    a + b
+    one_before_num = fib(num - 1)
+    two_before_num = fib(num - 2)
+    one_before_num + two_before_num
   end
 end
 
-binding.pry
+# binding.pry
 p fib(2)
 # p fib(4)
