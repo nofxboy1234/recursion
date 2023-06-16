@@ -336,9 +336,6 @@ def flatten_array(array)
 end
 
 def flatten_array2(array, result = array.dup)
-  # base case - when there are no more array elements in array
-  # return if result.none? { |element| element.instance_of?(Array) }
-
   index = 0
   for element in result
     if element.instance_of?(Array)
