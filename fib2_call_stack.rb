@@ -1,4 +1,4 @@
-  [0]:306 -- => one_before_num + two_before_num => 1 + 0 ==> 1
+  [0]:306 -- => two_before_num + one_before_num => 0 + 1 ==> 1
 [1]:311 -- fib(2) => ?
 
     [0]:300 -- ==> 0

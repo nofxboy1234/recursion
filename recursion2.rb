@@ -295,18 +295,21 @@ end
 # ---------------------
 
 # 0, 1, 1, 2, 3, 5, 8, 13, 21
-def fib(num)
-  if num == 0
+def fib(num, tabs = 0)
+  puts "num: #{num}"
+  if num.zero?
     0
   elsif num == 1
     1
   else
-    one_before_num = fib(num - 1)
-    two_before_num = fib(num - 2)
-    one_before_num + two_before_num
+    one_before_num = fib(num - 1, tabs + 2)
+    two_before_num = fib(num - 2, tabs + 2)
+    puts "#{' ' * tabs} #{[two_before_num, one_before_num]}"
+  
+    two_before_num + one_before_num
   end
 end
 
-# binding.pry
 p fib(2)
-# p fib(4)
+puts "\n"
+p fib(3)
