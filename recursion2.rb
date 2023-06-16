@@ -334,14 +334,37 @@ def flatten_array(array)
   end
   array
 end
+# array = [[1, 2], [3, 4]]
+# p array
+# p flatten_array(array)
+# p array
+
+# puts "\n"
+
+# array = [[1, [8, 9]], [3, 4]]
+# p array
+# p flatten_array(array)
+# p array
+
+def flatten(array, result = [])
+  array.each do |element|
+    if element.kind_of?(Array)
+      flatten(element, result)
+    else
+      result << element
+    end
+  end
+  result
+end
+
 array = [[1, 2], [3, 4]]
 p array
-p flatten_array(array)
+p flatten(array)
 p array
 
 puts "\n"
 
 array = [[1, [8, 9]], [3, 4]]
 p array
-p flatten_array(array)
+p flatten(array)
 p array
