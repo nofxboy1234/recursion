@@ -301,7 +301,7 @@ end
 # 0, 1, 1, 2, 3, 5, 8, 13, 21
 # 0, 1, 2, 3
 def fib(num, tabs = 0)
-  if num.zero? || num == 1
+  if [0, 1].include?(num)
     num
   else
     two_before_num = fib(num - 2, tabs + 2)
