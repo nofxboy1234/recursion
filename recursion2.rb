@@ -317,7 +317,7 @@ def fib(num, tabs = 0)
   end
 end
 # binding.pry
-p fib(5)
+# p fib(5)
 
 def flatten_array(array)
   # base case - when there are no more array elements in array
@@ -348,21 +348,21 @@ def flatten_array2(array, result = array.dup)
   result
 end
 
-array = [[1, 2], [3, 4]]
-p array
-p flatten_array2(array)
-p array
+# array = [[1, 2], [3, 4]]
+# p array
+# p flatten_array2(array)
+# p array
 
-puts "\n"
+# puts "\n"
 
-array = [[1, [8, 9]], [3, 4]]
-p array
-p flatten_array2(array)
-p array
+# array = [[1, [8, 9]], [3, 4]]
+# p array
+# p flatten_array2(array)
+# p array
 
 def flatten(array, result = [])
   array.each do |element|
-    if element.kind_of?(Array)
+    if element.is_a?(Array)
       flatten(element, result)
     else
       result << element
@@ -382,3 +382,63 @@ end
 # p array
 # p flatten(array)
 # p array
+
+roman_mapping = {
+  1000 => 'M',
+  900 => 'CM',
+  500 => 'D',
+  400 => 'CD',
+  100 => 'C',
+  90 => 'XC',
+  50 => 'L',
+  40 => 'XL',
+  10 => 'X',
+  9 => 'IX',
+  5 => 'V',
+  4 => 'IV',
+  1 => 'I'
+}
+
+def integer_to_roman(roman_mapping, number, result = '')
+  return result if number == 0
+
+  roman_mapping.keys.each do |divisor|
+    quotient, modulus = number.divmod(divisor)
+    result << roman_mapping[divisor] * quotient
+    return integer_to_roman(roman_mapping, modulus, result) if quotient > 0
+  end
+end
+
+p integer_to_roman(roman_mapping, 4)
+p integer_to_roman(roman_mapping, 14)
+
+roman_mapping = {
+  "M" => 1000,
+  "CM" => 900,
+  "D" => 500,
+  "CD" => 400,
+  "C" => 100,
+  "XC" => 90,
+  "L" => 50,
+  "XL" => 40,
+  "X" => 10,
+  "IX" => 9,
+  "V" => 5,
+  "IV" => 4,
+  "I" => 1
+}
+
+def roman_to_integer(roman_mapping, str, result = 0)
+  return result if str.empty?
+  
+  roman_mapping.keys.each do |roman|
+    if str.start_with?(roman)
+      result += roman_mapping[roman]
+      str = str.slice(roman.length, str.length)
+      return roman_to_integer(roman_mapping, str, result)
+    end
+  end
+end
+
+p roman_to_integer(roman_mapping, 'IV')
+p roman_to_integer(roman_mapping, 'XIV')
