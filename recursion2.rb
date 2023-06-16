@@ -312,10 +312,27 @@ def fib(num, tabs = 0)
     one_before_num = fib(num - 1, tabs + 2)
     # puts "#{print_stack(tabs)}one_before_num = #{one_before_num}"
     # puts "#{print_stack(tabs)}#{[two_before_num, one_before_num]}"
-  
+
     two_before_num + one_before_num
   end
 end
-
 # binding.pry
 p fib(5)
+
+def flatten_array(array)
+  # base case - when there are no more array elements in array
+  return if array.none? { |element| element.instance_of?(Array) }
+
+  index = 0
+  for element in array
+    if element.instance_of?(Array)
+      array_element = array.delete_at(index)
+      array.insert(index, *array_element)
+      flatten_array(array)
+    end
+    index += 1
+  end
+  array
+end
+p flatten_array([[1, 2], [3, 4]])
+p flatten_array([[1, [8, 9]], [3, 4]])
