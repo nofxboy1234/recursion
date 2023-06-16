@@ -1,3 +1,5 @@
+require 'pry-byebug'
+
 # def count_down(n)
 #   for i in (1..n).to_a.reverse do
 #     puts i
@@ -54,32 +56,30 @@
 # sum_range_recursive(3) => (3) + 3
 #                        => 6
 
-person = {
-  name: 'John',
-  children: [
-    {
-      name: 'Jim',
-      children: []
-    },
-    {
-      name: 'Zoe',
-      children: [
-        { name: 'Kyle', children: [] },
-        { name: 'Sophia', children: [] }
-      ]
-    }
-  ]
-}
+# person = {
+#   name: 'John',
+#   children: [
+#     {
+#       name: 'Jim',
+#       children: []
+#     },
+#     {
+#       name: 'Zoe',
+#       children: [
+#         { name: 'Kyle', children: [] },
+#         { name: 'Sophia', children: [] }
+#       ]
+#     }
+#   ]
+# }
 
-require 'pry-byebug'
-
-def get_all_children_names(person)
-  nested_child_names = person[:children].flat_map do |child|
-    get_all_children_names(child)
-  end
-  child_names = person[:children].map { |p| p[:name] }
-  child_names.concat(nested_child_names)
-end
+# def get_all_children_names(person)
+#   nested_child_names = person[:children].flat_map do |child|
+#     get_all_children_names(child)
+#   end
+#   child_names = person[:children].map { |p| p[:name] }
+#   child_names.concat(nested_child_names)
+# end
 
 # p get_all_children_names(person)
 
@@ -200,56 +200,56 @@ end
 
 # Fibonacci Number Sequence: https://youtu.be/mz6tAJMVmfM?t=517
 
-def palindrome?(str, reversed = '')
-  unless reversed == ''
-    return true if str.downcase == reversed.downcase
+# def palindrome?(str, reversed = '')
+#   unless reversed == ''
+#     return true if str.downcase == reversed.downcase
 
-    return false
+#     return false
 
-  end
+#   end
 
-  reversed = str.reverse
-  palindrome?(str, reversed)
-end
+#   reversed = str.reverse
+#   palindrome?(str, reversed)
+# end
 # p palindrome?('bob')
 # p palindrome?('blob')
 # p palindrome?('cat')
 
 # puts "\n"
-def palindrome2?(string)
-  if string.length == 1 || string.length == 0
-    p string
-    true
-  elsif string[0] == string[-1]
-    palindrome2?(string[1..-2])
-  else
-    false
-  end
-end
+# def palindrome2?(string)
+#   if string.length == 1 || string.length == 0
+#     p string
+#     true
+#   elsif string[0] == string[-1]
+#     palindrome2?(string[1..-2])
+#   else
+#     false
+#   end
+# end
 # p palindrome2?('bob')
 # p palindrome2?('blob')
 # p palindrome2?('cat')
 
-def bottles(n)
-  case n
-  when 0
-    puts 'no more bottles of beer on the wall'
-  when 1
-    puts 'one more bottle of beer on the wall'
-    bottles(n - 1)
-  else
-    puts "#{n} bottles of beer on the wall"
-    bottles(n - 1)
-  end
-end
+# def bottles(n)
+#   case n
+#   when 0
+#     puts 'no more bottles of beer on the wall'
+#   when 1
+#     puts 'one more bottle of beer on the wall'
+#     bottles(n - 1)
+#   else
+#     puts "#{n} bottles of beer on the wall"
+#     bottles(n - 1)
+#   end
+# end
 # bottles(3)
 
 # 0, 1, 1, 2, 3, 5, 8, 13, 21
-def fib_value(n, count = 0, current_next = [0, 1])
-  return current_next[0] if n == count
+# def fib_value(n, count = 0, current_next = [0, 1])
+#   return current_next[0] if n == count
 
-  fib_value(n, count + 1, [current_next[1], current_next[0] + current_next[1]])
-end
+#   fib_value(n, count + 1, [current_next[1], current_next[0] + current_next[1]])
+# end
 # p fib_value(0)
 # p fib_value(1)
 # p fib_value(2)
@@ -303,12 +303,15 @@ def fib(num, tabs = 0)
   elsif num == 1
     1
   else
-    one_before_num = fib(num - 1, tabs + 2)
     two_before_num = fib(num - 2, tabs + 2)
+    puts "#{'-' * tabs}"
+    one_before_num = fib(num - 1, tabs + 2)
+    puts "#{'-' * tabs}"
     puts "#{'-' * tabs}#{[two_before_num, one_before_num]}"
   
     two_before_num + one_before_num
   end
 end
 
+# binding.pry
 p fib(3)

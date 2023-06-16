@@ -20,3 +20,12 @@
 recurse or return: copy stack up
 show working - fib(4 - 1) => fib(3)
 match indent level for same line numbers
+
+num: 3
+--num: 2
+----num: 1
+----num: 0
+--[0, 1]
+--num: 1
+[1, 1]
+2
