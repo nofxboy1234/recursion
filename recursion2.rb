@@ -297,17 +297,17 @@ require 'pry-byebug'
 # 0, 1, 1, 2, 3, 5, 8, 13, 21
 # 0, 1, 2, 3
 def fib(num, tabs = 0)
-  puts "#{'-' * tabs}num: #{num}"
+  puts "#{tabs.zero? ? '|' : '-' * tabs}num: #{num}"
   if num.zero?
     0
   elsif num == 1
     1
   else
     two_before_num = fib(num - 2, tabs + 2)
-    puts "#{'-' * tabs}"
+    puts "#{tabs.zero? ? '|' : '-' * tabs}"
     one_before_num = fib(num - 1, tabs + 2)
-    puts "#{'-' * tabs}"
-    puts "#{'-' * tabs}#{[two_before_num, one_before_num]}"
+    puts "#{tabs.zero? ? '|' : '-' * tabs}"
+    puts "#{tabs.zero? ? '|' : '-' * tabs}#{[two_before_num, one_before_num]}"
   
     two_before_num + one_before_num
   end
