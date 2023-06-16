@@ -334,17 +334,34 @@ def flatten_array(array)
   end
   array
 end
-# array = [[1, 2], [3, 4]]
-# p array
-# p flatten_array(array)
-# p array
 
-# puts "\n"
+def flatten_array2(array, result = array.dup)
+  # base case - when there are no more array elements in array
+  # return if result.none? { |element| element.instance_of?(Array) }
 
-# array = [[1, [8, 9]], [3, 4]]
-# p array
-# p flatten_array(array)
-# p array
+  index = 0
+  for element in result
+    if element.instance_of?(Array)
+      array_element = result.delete_at(index)
+      result.insert(index, *array_element)
+      flatten_array2(array, result)
+    end
+    index += 1
+  end
+  result
+end
+
+array = [[1, 2], [3, 4]]
+p array
+p flatten_array2(array)
+p array
+
+puts "\n"
+
+array = [[1, [8, 9]], [3, 4]]
+p array
+p flatten_array2(array)
+p array
 
 def flatten(array, result = [])
   array.each do |element|
@@ -357,14 +374,14 @@ def flatten(array, result = [])
   result
 end
 
-array = [[1, 2], [3, 4]]
-p array
-p flatten(array)
-p array
+# array = [[1, 2], [3, 4]]
+# p array
+# p flatten(array)
+# p array
 
-puts "\n"
+# puts "\n"
 
-array = [[1, [8, 9]], [3, 4]]
-p array
-p flatten(array)
-p array
+# array = [[1, [8, 9]], [3, 4]]
+# p array
+# p flatten(array)
+# p array
