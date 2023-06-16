@@ -295,13 +295,13 @@ require 'pry-byebug'
 # ---------------------
 
 def print_stack(tabs)
-  tabs.zero? ? '|' : '-' * tabs
+  tabs.zero? ? '|' : "#{'-' * tabs}|"
 end
 
 # 0, 1, 1, 2, 3, 5, 8, 13, 21
 # 0, 1, 2, 3
 def fib(num, tabs = 0)
-  puts "#{tabs.zero? ? '|' : '-' * tabs}num: #{num}"
+  puts "#{print_stack(tabs)}num: #{num}"
   if num.zero?
     0
   elsif num == 1
@@ -309,15 +309,15 @@ def fib(num, tabs = 0)
   else
     puts "#{print_stack(tabs)}two_before_num = fib(#{num} - 2)"
     two_before_num = fib(num - 2, tabs + 2)
-    puts "#{print_stack(tabs)}two_before_num: #{two_before_num}"
+    puts "#{print_stack(tabs)}two_before_num = #{two_before_num}"
     puts "#{print_stack(tabs)}one_before_num = fib(#{num} - 1)"
     one_before_num = fib(num - 1, tabs + 2)
-    puts "#{print_stack(tabs)}one_before_num: #{one_before_num}"
+    puts "#{print_stack(tabs)}one_before_num = #{one_before_num}"
     puts "#{print_stack(tabs)}#{[two_before_num, one_before_num]}"
   
     two_before_num + one_before_num
   end
 end
 
-# binding.pry
+binding.pry
 p fib(3)

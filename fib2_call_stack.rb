@@ -23,17 +23,17 @@ match indent level for same line numbers
 
 |num: 3
 |two_before_num = fib(3 - 2)
---num: 1
-|two_before_num: 1
+--|num: 1
+|two_before_num = 1
 |one_before_num = fib(3 - 1)
---num: 2
---two_before_num = fib(2 - 2)
-----num: 0
---two_before_num: 0
---one_before_num = fib(2 - 1)
-----num: 1
---one_before_num: 1
---[0, 1]
-|one_before_num: 1
+--|num: 2
+--|two_before_num = fib(2 - 2)
+----|num: 0
+--|two_before_num = 0
+--|one_before_num = fib(2 - 1)
+----|num: 1
+--|one_before_num = 1
+--|[0, 1]
+|one_before_num = 1
 |[1, 1]
 2
