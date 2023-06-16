@@ -313,5 +313,5 @@ def fib(num, tabs = 0)
   end
 end
 
-# binding.pry
+binding.pry
 p fib(3)
