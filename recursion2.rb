@@ -334,5 +334,14 @@ def flatten_array(array)
   end
   array
 end
-p flatten_array([[1, 2], [3, 4]])
-p flatten_array([[1, [8, 9]], [3, 4]])
+array = [[1, 2], [3, 4]]
+p array
+p flatten_array(array)
+p array
+
+puts "\n"
+
+array = [[1, [8, 9]], [3, 4]]
+p array
+p flatten_array(array)
+p array
