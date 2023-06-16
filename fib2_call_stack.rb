@@ -21,19 +21,54 @@ recurse or return: copy stack up
 show working - fib(4 - 1) => fib(3)
 match indent level for same line numbers
 
-|num: 3
-|two_before_num = fib(3 - 2)
---|num: 1
-|two_before_num = 1
-|one_before_num = fib(3 - 1)
---|num: 2
---|two_before_num = fib(2 - 2)
-----|num: 0
---|two_before_num = 0
---|one_before_num = fib(2 - 1)
+|num: 5
+|two_before_num = fib(5 - 2)
+--|num: 3
+--|two_before_num = fib(3 - 2)
 ----|num: 1
+--|two_before_num = 1
+--|one_before_num = fib(3 - 1)
+----|num: 2
+----|two_before_num = fib(2 - 2)
+------|num: 0
+----|two_before_num = 0
+----|one_before_num = fib(2 - 1)
+------|num: 1
+----|one_before_num = 1
+----|[0, 1]
 --|one_before_num = 1
---|[0, 1]
-|one_before_num = 1
-|[1, 1]
-2
+--|[1, 1]
+|two_before_num = 2
+|one_before_num = fib(5 - 1)
+--|num: 4
+--|two_before_num = fib(4 - 2)
+----|num: 2
+----|two_before_num = fib(2 - 2)
+------|num: 0
+----|two_before_num = 0
+----|one_before_num = fib(2 - 1)
+------|num: 1
+----|one_before_num = 1
+----|[0, 1]
+--|two_before_num = 1
+--|one_before_num = fib(4 - 1)
+----|num: 3
+----|two_before_num = fib(3 - 2)
+------|num: 1
+----|two_before_num = 1
+----|one_before_num = fib(3 - 1)
+------|num: 2
+------|two_before_num = fib(2 - 2)
+--------|num: 0
+------|two_before_num = 0
+------|one_before_num = fib(2 - 1)
+--------|num: 1
+------|one_before_num = 1
+------|[0, 1]
+----|one_before_num = 1
+----|[1, 1]
+--|one_before_num = 2
+--|[1, 2]
+|one_before_num = 3
+|[2, 3]
+5
