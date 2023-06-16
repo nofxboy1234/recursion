@@ -295,8 +295,9 @@ end
 # ---------------------
 
 # 0, 1, 1, 2, 3, 5, 8, 13, 21
+# 0, 1, 2, 3
 def fib(num, tabs = 0)
-  puts "num: #{num}"
+  puts "#{'-' * tabs}num: #{num}"
   if num.zero?
     0
   elsif num == 1
@@ -304,12 +305,10 @@ def fib(num, tabs = 0)
   else
     one_before_num = fib(num - 1, tabs + 2)
     two_before_num = fib(num - 2, tabs + 2)
-    puts "#{' ' * tabs} #{[two_before_num, one_before_num]}"
+    puts "#{'-' * tabs}#{[two_before_num, one_before_num]}"
   
     two_before_num + one_before_num
   end
 end
 
-p fib(2)
-puts "\n"
 p fib(3)
